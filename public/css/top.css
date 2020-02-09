@@ -1,0 +1,129 @@
+/*font*/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800&display=swap');
+.heading-font-lg {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.heading-font-md {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.heading-font-sm {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+/*HTMLタグ(webfont ちらつき防止)
+
+html {
+    visibility: hidden;
+}
+
+html.wf-active,
+html.loading-delay {
+    visibility: visible;
+}
+*/
+
+/*nav*/
+
+.navbar {
+    padding: 15px;
+}
+
+
+/*contens*/
+
+.slide-img {
+    min-width: 380px;
+    padding: 250px 0;
+    margin: 0 -400px 20px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+    background-image: url('/images/marsh.jpg');
+}
+
+.body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+}
+
+.section {
+    width: 100%;
+    padding: 70px 0;
+}
+
+/*card*/
+
+.card.about {
+    width: 240px;
+    margin: auto;
+}
+
+.card-title {
+    padding: 0 0 15px;
+}
+
+.card-deck.work {
+    text-align: center;
+}
+
+
+/*button*/
+
+.btn-ready {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 10px;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background-color: rgb(246, 76, 70);
+}
+/*img*/
+
+.oshi-image {
+    height: 100px;
+    margin-bottom: 20px;
+	object-fit: cover;
+}
+.oshi-title {
+    height: 3.5em;
+    overflow: hidden;
+}
+.description {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.detail-btn {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+.pagination {
+    justify-content: center;
+}
+
+.a {
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 400;
+}
+
+.a.font-bold {
+    font-weight: 600;
+}
