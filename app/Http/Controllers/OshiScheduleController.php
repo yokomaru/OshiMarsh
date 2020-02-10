@@ -12,7 +12,7 @@ class OshiScheduleController extends Controller
     public function getSchedule(Request $request)
     {
         // スケジュールデータ取得
-        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
+        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->select('oshi_infos.name', 'oshi_schedules.id','oshi_schedules.day','oshi_schedules.oshi_id','oshi_schedules.user_id','oshi_schedules.memo','oshi_schedules.start_time_at','oshi_schedules.end_time_at','oshi_schedules.title')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
         //dd($list);
         return view('oshi_schedule_index', ['list' => $list]);        
     }
@@ -20,7 +20,7 @@ class OshiScheduleController extends Controller
     public function index(Request $request)
     {
         //$list = Oshi_schedule::all();
-        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
+        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->select('oshi_infos.name', 'oshi_schedules.id','oshi_schedules.day','oshi_schedules.oshi_id','oshi_schedules.user_id','oshi_schedules.memo','oshi_schedules.start_time_at','oshi_schedules.end_time_at','oshi_schedules.title')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
         //dd($list);
         $cal = new Calendar($list);
         $tag = $cal->showCalendarTag($request->month,$request->year);
@@ -37,6 +37,7 @@ class OshiScheduleController extends Controller
  
         $oshi_schedule = new Oshi_schedule(); 
         $oshi_schedule = Oshi_schedule::where('id',$post['id'])->first();
+        //dd();
         $oshi_schedule->day = $request->day;
         $oshi_schedule->oshi_id = $request->oshiid; 
         $oshi_schedule->user_id = \Auth::id();
@@ -81,7 +82,7 @@ class OshiScheduleController extends Controller
         $oshi_schedule->save();
         // スケジュールデータ取得
         //$list = Oshi_schedule::all();
-        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
+        $list = Oshi_schedule::where('oshi_schedules.status', 1)->where('oshi_schedules.user_id', \Auth::id())->leftJoin('oshi_infos', 'oshi_infos.id', '=', 'oshi_schedules.oshi_id')->select('oshi_infos.name', 'oshi_schedules.id','oshi_schedules.day','oshi_schedules.oshi_id','oshi_schedules.user_id','oshi_schedules.memo','oshi_schedules.start_time_at','oshi_schedules.end_time_at','oshi_schedules.title')->orderBy('oshi_schedules.day', 'ASC')->orderBy('oshi_schedules.start_time_at', 'ASC') -> get();
         
         $cal = new Calendar($list);
         //dd($list);

@@ -13,7 +13,7 @@
     <div class="slide-img">
       <div class="container text-center">
         <h1 class="heading-font-lg pb-5">推し活を応援する<br>情報収集＋スケジュール管理サービス</h1>
-        <a href="{{ route('register') }}"><button class="btn btn-ready btn-lg" id="btn_ready" type="button" >無料でOshimarshを始める</button></a>
+        <a href="{{ route('register') }}"><button class="btn btn-ready btn-lg" id="btn_ready" type="button" >無料でOshiMarshを始める</button></a>
       </div>
     </div>
     
@@ -22,7 +22,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 mx-auto text-center ">
-            <div class="heading-font-lg">OshiMarshとは</div>
+            <div class="heading-font-lg h3">OshiMarshとは</div>
             <div class="heading-font-sm">
                 OshiMarshは、「Oshi」＝「推し」、「Marsh」＝「沼」、</br>
                 更に「推します！」という推しへの熱い思いを宣言する意味も込めています。</br>
@@ -91,8 +91,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center ">
-            <div class="heading-font-lg">まずはユーザー登録から！</div>
-        <a href="{{ route('register') }}"><button class="btn btn-ready btn-lg" id="btn_ready" type="button" >無料でOshimarshを始める</button></a>
+            <div class="heading-font-lg h3">まずはユーザー登録から！</div>
+        <a href="{{ route('register') }}"><button class="btn btn-ready btn-lg" id="btn_ready" type="button" >無料でOshiMarshを始める</button></a>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
     @else
     	<div class="row justify-content-center container">
     	    <div class="col-md-4">
-    	        <div class="card mb50">
+    	        <div class="card mb50 mt50">
     	            <div class="card-body">
      			    {{ Auth::user()->name }} さんの推しは<br>現在 {{ count($oshi_infos) }} 人です！
     	            </div>
@@ -113,35 +113,33 @@
         <div class="d-flex flex-column justify-content-center container">
             @foreach($oshi_infos as $oshi_info)
                     <div class="card mb50">
-                        <div class="card-body col-md-8 d-flex justify-content-start">
-                            <div class="col-md-4">
+                        <div class="card-body col-md-12 d-flex justify-content-start">
+                            <div class="col-md-3">
                                 @if(!empty($oshi_info->image))
                                     <div class='image-wrapper'><img class='oshi-image' src="{{ asset('storage/images/'.$oshi_info->image) }}"></div>
                                 @else
                                     <div class='image-wrapper'><img class='oshi-image' src="{{ asset('images/angel.png') }}"></div>
                                 @endif
-                                <a href="{{ route('show', ['id' => $oshi_info->id ]) }}" class='btn btn-secondary detail-btn'>
+                              <div class="col-md-2 d-flex align-items-end text-right">
+                                <a href="{{ route('show', ['id' => $oshi_info->id ]) }}" class='btn btn-info'>
                                     <i class="fas fa-external-link-alt"></i>詳細
                                 </a>
-                                <form action="{{ url('/'.$oshi_info->id) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                    <input type="hidden"  name='id' id="id" value={{ $oshi_info->id }}>
-	                            </form>
-                                <a href="{{ route('edit', ['id' => $oshi_info->id ]) }}" class='btn btn-secondary detail-btn'>
+                                <a href="{{ route('edit', ['id' => $oshi_info->id ]) }}" class='btn btn-secondary'>
                                     <i class="fa fa-pencil"></i>編集
                                 </a>
+                              </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <h3 class='h3 oshi-title'>{{ $oshi_info->name }}</h3>
-                                <p class='description'>
-                                    {{ $oshi_info->belong_team }}
-                                </p>
+                                <p class='description'>{{ $oshi_info->belong_team }}</p>
                             </div>
+                            <div class="col-md-2 d-flex align-items-end text-right">
+                              <a href="{{ route('delete', ['id' => $oshi_info->id ])  }}" class="btn btn-danger">
+                                  <i class="fa fa-trash"></i>削除
+                              </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
             @endforeach
         </div>
     @endguest

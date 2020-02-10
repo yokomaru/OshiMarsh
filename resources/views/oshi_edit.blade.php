@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class='pagetitle'>推し投稿ページ</h1>
+<h1 class='pagetitle'>推し編集ページ</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -67,7 +67,8 @@
         				</select>
               </div>
               <input type="hidden"  name='id' id="id" value={{ $oshi_infos->id }}>
-              <input type='submit' class='btn btn-primary' value='推しを登録'>
+              <input type='submit' class='btn btn-primary' value='推しを編集'>
+              <a href="{{ route('index') }}" class='btn btn-info btn-back'>一覧へ戻る</a>
             </div>
         </div>
       </form>

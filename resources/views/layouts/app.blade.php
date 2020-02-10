@@ -31,7 +31,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class='navbar-logo' src="{{ asset('images/LOVE.png') }}">
@@ -108,7 +108,7 @@
             </div>
         </nav>
 
-        <main class="main container">
+        <main class="main container main-top">
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb30">
                     {{ session('flash_message') }}
@@ -138,35 +138,36 @@
         if(typeof recipient.title == "undefined"){
           console.log(recipient.substring(0, 4));
           console.log(recipient.substring(5, 7));
-         modal.find('.modal-title').val(''); //inputタグにも表示
-         modal.find('.modal-memo').val(''); //inputタグにも表示
-         modal.find('.modal-name').val(''); //inputタグにも表示
-         modal.find('.modal-starttimeat').val(''); //inputタグにも表示
-         modal.find('.modal-endtimeat').val(''); //inputタグにも表示
-         modal.find('.modal-day').val(recipient); //inputタグにも表示
-         modal.find('.modal-starttimeat').val(''); //inputタグにも表示
-         modal.find('.modal-endtimeat').val(''); //inputタグにも表
-         modal.find('.modal-year').val(recipient.substring(0, 4)); //inputタグにも表
-         modal.find('.modal-month').val(recipient.substring(5, 7)); //inputタグにも表
+         modal.find('.modal-title').val('');
+         modal.find('.modal-memo').val('');
+         modal.find('.modal-name').val('');
+         modal.find('.modal-starttimeat').val(''); 
+         modal.find('.modal-endtimeat').val(''); 
+         modal.find('.modal-day').val(recipient); 
+         modal.find('.modal-starttimeat').val('');
+         modal.find('.modal-endtimeat').val(''); 
+         modal.find('.modal-year').val(recipient.substring(0, 4)); 
+         modal.find('.modal-month').val(recipient.substring(5, 7)); 
          modal.find('.mordal-form').attr('action',  "/schedule/create/");
-         modal.find('#schedule_submit').val('登録');//inputタグにも表
-         modal.find('#schedule_delete').hide();//inputタグにも表
+         modal.find('#schedule_submit').val('登録');
+         modal.find('#schedule_delete').hide();
         }
         else{
           console.log(recipient.id);
          //modal.find('.modal-title').value('New message to ' + recipient) //モーダルのタイトルに値を表示
-         modal.find('.modal-title').val(recipient.title); //inputタグにも表示
-         modal.find('.modal-memo').val(recipient.memo); //inputタグにも表示
-         modal.find('.modal-name').val(recipient.oshi_id); //inputタグにも表示
-         modal.find('.modal-day').val(recipient.day); //inputタグにも表示
-         modal.find('.modal-starttimeat').val(recipient.start_time_at); //inputタグにも表示
-         modal.find('.modal-endtimeat').val(recipient.end_time_at); //inputタグにも表
-         modal.find('.modal-id').val(recipient.id); //inputタグにも表
-         modal.find('.modal-year').val(recipient.day.substring(0, 4)); //inputタグにも表
-         modal.find('.modal-month').val(recipient.day.substring(5, 7)); //inputタグにも表
+         modal.find('.modal-title').val(recipient.title);
+         modal.find('.modal-memo').val(recipient.memo); 
+         modal.find('.modal-day').val(recipient.day); 
+         modal.find('.modal-starttimeat').val(recipient.start_time_at); 
+         modal.find('.modal-endtimeat').val(recipient.end_time_at); 
+         modal.find('.modal-id').val(recipient.id); 
+         modal.find('.modal-oshi').val(recipient.oshi_id); 
+         modal.find('.modal-year').val(recipient.day.substring(0, 4)); 
+         modal.find('.modal-month').val(recipient.day.substring(5, 7)); 
          modal.find('.mordal-form').attr('action',  "/schedule/update/");
-         modal.find('#schedule_submit').val('更新');//inputタグにも表
+         modal.find('#schedule_submit').val('更新');
          modal.find('#schedule_edit').attr('href', '/schedule/delete/'+recipient.id);
+         modal.find('#schedule_delete').show();
         }
         })
     };

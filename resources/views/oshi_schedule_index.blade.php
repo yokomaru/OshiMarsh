@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h1 >推しカレンダー</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -12,8 +13,8 @@
     </div>
 @endif
 
-<div class="row justify-content-center container">
-    <div class="col-md-12">
+<div class="justify-content-center container fluid">
+    <div class="col-md-12 pt-1">
         <div class="card">
             {!!$cal_tag!!}
         </div>  
@@ -45,8 +46,8 @@
                         </div>
 
                         <div class="form-group">
-                          <label>推しID</label>
-                          {{ Form::select('oshiid', \App\Oshi_info::select('id', 'name')->get()->pluck('name','id')->prepend( "選択してください", ""), null, ['class' => 'form-control']) }}
+                          <label>推し</label>
+                          {{ Form::select('oshiid', \App\Oshi_info::select('id', 'name')->where('status', 1)->where('user_id', \Auth::id())->get()->pluck('name','id')->prepend( "選択してください", ""), null, ['class' => 'form-control form-control modal-oshi']) }}
                         </div>
           
                         <div class="form-group">
@@ -68,12 +69,15 @@
                 <input type="hidden"  name='year' id="year"  class="modal-year" >
                 <input type="hidden"  name='month' id="month"  class="modal-month" >
                 <input type="hidden" name='id' id="id" class="form-control modal-id" >
+
+                <div>
                 <input type='submit' id='schedule_submit' class='btn btn-primary' value='登録'>
-                <a class="btn btn-danger form-control" id='schedule_delete' value = '削除'><i class="fa fa-trash"></i></a>
+                <div>
                 </form>
 
-              </div
+              </div>
               <div class="modal-footer">
+                <a class="btn btn-danger text-right" id='schedule_delete' value = '削除' ><i class="fa fa-trash"></i>削除</a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
 
@@ -82,5 +86,5 @@
         </div>
         
     </div>
-</div>
+
 @endsection

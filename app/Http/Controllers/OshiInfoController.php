@@ -22,8 +22,6 @@ class OshiInfoController extends Controller
         $oshi_infos = Oshi_info::where('id', $id)->where('status', 1)->first();
         $tweets_params = ['q' =>$oshi_infos->name . ' OR '.  '#' .  $oshi_infos->name ,'count' => '20'];
         $result = \Twitter::get('search/tweets', $tweets_params)->statuses;
-        //ViewのTwitter.blade.phpに渡す
-        //ViewのTwitter.blade.phpに渡す
         //dd($result);
         //return view('twitter', [
         //    "result" => $result

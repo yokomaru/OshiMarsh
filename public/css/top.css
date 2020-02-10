@@ -1,6 +1,6 @@
 /*font*/
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800&display=swap');*/
 .heading-font-lg {
     font-size: 2.5rem;
     font-weight: 700;
@@ -32,13 +32,16 @@ html.loading-delay {
 }
 */
 
-/*nav*/
+/*nav
 
 .navbar {
     padding: 15px;
 }
+*/
 
-
+.main-top{
+    padding-top: 0px
+}
 /*contens*/
 
 .slide-img {
@@ -50,9 +53,7 @@ html.loading-delay {
     background-image: url('/images/marsh.jpg');
 }
 
-.body {
-    font-family: 'Raleway', sans-serif;
-}
+
 
 .wrapper {
     min-height: 100vh;
@@ -100,7 +101,7 @@ html.loading-delay {
 	object-fit: cover;
 }
 .oshi-title {
-    height: 3.5em;
+    height: 2em;
     overflow: hidden;
 }
 .description {

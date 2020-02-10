@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class='pagetitle'>推し投稿ページ</h1>
+<h1 class=''>推し投稿ページ</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -76,8 +76,8 @@
         				</select>
               </div>
 
-              <input type='submit' class='btn btn-primary' value='レビューを登録'>
-
+              <input type='submit' class='btn btn-primary' value='推しを登録'>
+              <a href="{{ route('index') }}" class='btn btn-info btn-back'>一覧へ戻る</a>
             </div>
         </div>
       </form>

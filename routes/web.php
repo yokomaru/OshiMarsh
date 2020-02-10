@@ -23,8 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/oshi_register/store', 'OshiInfoController@store')->name('store');
 	// タスク編集画面遷移
 	Route::get('/oshi_edit/{id}' , 'OshiInfoController@edit')->name('edit');
-	// タスク更新
-	Route::post('/delete/{id}' , 'OshiInfoController@delete')->name('delete');
+	// タスク削除
+	Route::get('/delete/{id}' , 'OshiInfoController@delete')->name('delete');
 	// タスク更新
 	Route::post('/update/{id}' , 'OshiInfoController@update')->name('update');
 	//Route::get('/oshi_show/{id}/twitter', 'TwitterController@index')->name('get_twitter');

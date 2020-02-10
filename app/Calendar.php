@@ -40,15 +40,15 @@ class Calendar
                 {$year}年{$month}月
                 <a class="btn btn-primary btn-secondary" href="/schedule/?year={$next_year}&month={$next_month}" role="button">翌月&gt;</a>
             </h1>
-            <table class="table table-bordered">
+            <table class="table table-bordered ">
             <tr>
-              <th scope="col">日</th>
-              <th scope="col">月</th>
-              <th scope="col">火</th>
-              <th scope="col">水</th>
-              <th scope="col">木</th>
-              <th scope="col">金</th>
-              <th scope="col">土</th>
+              <th style="width:12%" scope="col">日</th>
+              <th style="width:12%" scope="col">月</th>
+              <th style="width:12%" scope="col">火</th>
+              <th style="width:12%" scope="col">水</th>
+              <th style="width:12%" scope="col">木</th>
+              <th style="width:12%" scope="col">金</th>
+              <th style="width:12%" scope="col">土</th>
             </tr>
             EOS;
         // カレンダーの日付部分を生成する
@@ -74,12 +74,10 @@ class Calendar
                            $this->html .= "<br><a data-toggle='modal' data-target='#modal-example' data-whatever='{$val}'>";
                             if ($start_time_at === '' && $end_time_at === '') {
                                 $this->html .= "<span>{$start_time_at}{$end_time_at}</span> {$val->title} ({$val->name})</a>";  
-                                break;
                             }
                             else{
-                                $this->html .= "<span>{$val->name} : {$start_time_at}  ～ {$end_time_at}</span> {$val->title} ({$val->name})</a>";  
+                                $this->html .= "<span>{$val->name} : {$start_time_at}  ～ {$end_time_at}</span> {$val->title}  ({$val->name})</a>";  
                             }
-                           break;
                        }
                    }
                    $this->html .= "</td>"; 
