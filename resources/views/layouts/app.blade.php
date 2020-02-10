@@ -166,6 +166,7 @@
          modal.find('.modal-month').val(recipient.day.substring(5, 7)); 
          modal.find('.mordal-form').attr('action',  "/schedule/update/");
          modal.find('#schedule_submit').val('更新');
+         modal.find('#schedule_delete').attr('href', '/schedule/delete/'+recipient.id);
          modal.find('#schedule_edit').attr('href', '/schedule/delete/'+recipient.id);
          modal.find('#schedule_delete').show();
         }
